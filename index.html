@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Game</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+
+<body>
+  <main>
+    <section class="area_container">
+      <div class="hint_area"></div>
+      <div class="word_area"></div>
+    </section>
+    <section class="btn_area">
+      <ul class="btn_parts">
+        <li class="demo btn">DEMO</li>
+        <li class="game btn">GAME</li>
+        <li class="hint btn">HINT</li>
+        <li class="music btn">
+          <i class="fas fa-music"></i>
+        </li>
+        <!-- <audio id=bgmNiziu src="music/01 - Make you happy.mp3" loop></audio> -->
+        <audio id=bgmNiziu src="" loop></audio>
+      </ul>
+    </section>
+    <section class="keyboard_area">
+      <ul class="keys">
+      </ul>
+    </section>
+    <div class="overlay"></div>
+    <section class="game_area hidden">
+      <p>遊ぶゲームをクリックしてね！</p>
+      <div class="btn_container">
+        <div class="color">
+          <div>COLOR</div>
+        </div>
+        <div class="title">
+          <div>TITLE</div>
+        </div>
+        <div class="member">
+          <div>MEMBER</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
