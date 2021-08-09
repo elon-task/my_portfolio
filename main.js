@@ -374,9 +374,9 @@
   // 音楽の再生処理
   const audioElement = document.querySelector('audio');
   const a = [
-    "music/01 - Make you happy.mp3",
-    "music/01 - Poppin' Shakin'.mp3",
-    "music/01 - Step and a step.mp3",
+    "https://elon-task.github.io/my_portfolio/music/01 - Make you happy.mp3",
+    "https://elon-task.github.io/my_portfolio/music/01 - Poppin' Shakin'.mp3",
+    "https://elon-task.github.io/my_portfolio/music/01 - Step and a step.mp3",
   ];
 
 
