@@ -30,8 +30,8 @@
       'HH',
       'NN',
     ],
-    [ /* index[i] */
-      'RED', /* index[i][num] */
+    [
+      'RED',
       'ORANGE',
       'YELLOW',
       'GREEN',
@@ -148,8 +148,8 @@
   let keyIndex;
   let lastKey;
   let lastKeyIndex;
-  let i;
-  let num = 0;
+  let i = 0;
+  let num;
   let loc = 0;
   let startTime;
   let hintBtn = false;
@@ -168,7 +168,7 @@
   const hint_a = document.querySelector('.hint');
   const bgmNiziu = document.getElementById('bgmNiziu');
   const btnMusic = document.querySelector('.music');
- 
+
   function createKeyboard() {
     keys.forEach(keyLi => {
       const li = document.createElement('li');
@@ -180,23 +180,32 @@
   createKeyboard();
   const keyLi = document.querySelectorAll('.keys li');
 
+  function setText() {
+    num = words[i].length;
+    word = words[i].splice(Math.floor(Math.random() * words[i].length), 1)[0];
+    word_area.textContent = word;
+  }
   function setWord() {
     if (demoBtn) {
       i = 0;
       word = words[i][num];
       word_area.textContent = word;
-    } else if (colorBtn) {
+    } else if (colorBtn || word === 'undefined') {
       i = 1;
-      word = words[i][num];
-      word_area.textContent = word;
+      // num = words[i].length;
+      // word = words[i].splice(Math.floor(Math.random() * words[i].length), 1)[0];
+      // word_area.textContent = word;
+      setText();
     } else if (titleBtn) {
       i = 2;
-      word = words[i][num];
-      word_area.textContent = word;
+      // word = words[i][num];
+      // word_area.textContent = word;
+      setText();
     } else if (memberBtn) {
       i = 3;
-      word = words[i][num];
-      word_area.textContent = word;
+      // word = words[i][num];
+      // word_area.textContent = word;
+      setText();
     }
   }
 
@@ -253,7 +262,7 @@
   }
 
   function btnGame() {
-    function a() {
+    function gameStart() {
       setWord();
       game_area.classList.add('hidden');
       overlay.classList.remove('show');
@@ -268,15 +277,15 @@
 
     document.querySelector('.color').addEventListener('click', () => {
       colorBtn = true;
-      a();
+      gameStart();
     });
     document.querySelector('.title').addEventListener('click', () => {
       titleBtn = true;
-      a();
+      gameStart();
     });
     document.querySelector('.member').addEventListener('click', () => {
       memberBtn = true;
-      a();
+      gameStart();
     });
     btnHint();
   }
@@ -323,7 +332,8 @@
     setHint();
 
     if (loc === word.length) {
-      num++;
+      // num++;
+      num--;
       setWord();
       loc = 0;
       setHint();
@@ -333,24 +343,51 @@
     classCurrent();
 
     if (num === words[i].length) {
+      // if (words[i].length === 0) {
       let elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
 
       if (demoBtn) {
         word_area.textContent = '繰り返し練習して指の位置を覚えよう！';
         // return;
-      } else if(colorBtn) {
+      } else if (colorBtn) {
+        words[1] = [
+          'RED',
+          'ORANGE',
+          'YELLOW',
+          'GREEN',
+          'BLUE',
+          'NAVY',
+          'PURPLE',
+        ];
         if (elapsedTime < 30.00) {
           word_area.textContent = `すごいね！${elapsedTime}秒だよ！星1個ゲット！`;
         } else {
           word_area.textContent = `${elapsedTime}秒だよ！この調子で頑張ろう！`;
         }
-      } else if(titleBtn) {
+      } else if (titleBtn) {
+        words[2] = [
+          'SUPER SUMMER',
+          'TAKE A PICTURE',
+          'STEP AND A STEP',
+          'MAKE YOU HAPPY',
+        ];
         if (elapsedTime < 50.00) {
           word_area.textContent = `すごいね！${elapsedTime}秒だよ！星1個ゲット！`;
         } else {
           word_area.textContent = `${elapsedTime}秒だよ！この調子で頑張ろう！`;
         }
-      } else if(memberBtn) {
+      } else if (memberBtn) {
+        words[3] = [
+          'MAKO',
+          'RIO',
+          'MAYA',
+          'RIKU',
+          'AYAKA',
+          'MAYUKA',
+          'RIMA',
+          'MIIHI',
+          'NINA',    
+        ];
         if (elapsedTime < 15.00) {
           word_area.textContent = `すごいね！${elapsedTime}秒だよ！星1個ゲット！`;
         } else {
@@ -360,13 +397,12 @@
       demo.classList.remove('pointNone');
       game.classList.remove('pointNone');
       hint_a.classList.remove('pointNone');
-      num = 0;
       demoBtn = false;
       colorBtn = false;
       titleBtn = false;
       memberBtn = false;
       hintBtn = false;
-      // hint_area.textContent = '';
+      num = words[i].length;
       keyLi[lastKeyIndex].classList.remove('current');
     }
   });
@@ -374,9 +410,9 @@
   // 音楽の再生処理
   const audioElement = document.querySelector('audio');
   const a = [
-    "https://elon-task.github.io/my_portfolio/music/01 - Make you happy.mp3",
-    "https://elon-task.github.io/my_portfolio/music/01 - Poppin' Shakin'.mp3",
-    "https://elon-task.github.io/my_portfolio/music/01 - Step and a step.mp3",
+    "https://elon-task.github.io/my_portfolio/01 - Make you happy.mp3",
+    "https://elon-task.github.io/my_portfolio/01 - Poppin' Shakin'.mp3",
+    "https://elon-task.github.io/my_portfolio/01 - Step and a step.mp3",
   ];
 
 
