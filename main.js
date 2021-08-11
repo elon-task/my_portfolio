@@ -188,8 +188,9 @@
   function setWord() {
     if (demoBtn) {
       i = 0;
-      word = words[i][num];
-      word_area.textContent = word;
+//       word = words[i][num];
+//       word_area.textContent = word;
+      setText();
     } else if (colorBtn || word === 'undefined') {
       i = 1;
       // num = words[i].length;
@@ -348,6 +349,34 @@
 
       if (demoBtn) {
         word_area.textContent = '繰り返し練習して指の位置を覚えよう！';
+        words[0] = [
+          'FF', /* index[i][num] */
+          'DD',
+          'SS',
+          'AA',
+          'JJ',
+          'KK',
+          'LL',
+          'RR',
+          'EE',
+          'WW',
+          'QQ',
+          'UU',
+          'II',
+          'OO',
+          'PP',
+          'MM',
+          'VV',
+          'CC',
+          'XX',
+          'ZZ',
+          'GG',
+          'TT',
+          'BB',
+          'YY',
+          'HH',
+          'NN',
+        ];
         // return;
       } else if (colorBtn) {
         words[1] = [
